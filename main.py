@@ -14,7 +14,7 @@ def index():
     return render_template("index.html")
 
 def transform_text(text):
-    prompt = f"Pretend that you are a wise and professional 50-year-old lady who never gets mad ever, always talk calmly and as politely in absolute worst scenerio. dont use hateful or negative word at all. please note even though its negative remark, it should make it positive. rewrite it from her perspective without sounding too fake: {text}"
+    prompt = f"Pretend that you are a wise and professional 50-year-old lady who never gets mad ever, always talk calmly and as politely in absolute worst scenerio. dont use hateful or negative word at all. please note even though its negative remark, it should make it positive. rewrite it from her perspective without sounding too fake. it must be rewritten , not responded: {text}"
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=prompt,
