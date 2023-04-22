@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What She Meant</title>
+    <title>ChatGPT Transformation</title>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-image: url("https://www.transparenttextures.com/patterns/snow.png");
         }
         form {
             background-color: white;
@@ -61,10 +61,8 @@
 </head>
 <body>
     <form id="text_form" onsubmit="event.preventDefault();">
-
         <textarea id="input_text" name="input_text" placeholder="Enter your text here" required></textarea>
-        <button type="button" onclick="transformText()">What I mean is.. </button>
-
+        <button type="button" onclick="transformText()">What I meant is..</button>
         <p id="output"></p>
     </form>
 </body>
