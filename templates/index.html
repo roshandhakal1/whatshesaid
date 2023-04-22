@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What She Meant</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        textarea, button {
+            width: 100%;
+            font-size: 1rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0.25rem;
+            border: 1px solid #ccc;
+        }
+        textarea {
+            height: 150px;
+            resize: none;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+    <script>
+        async function transformText() {
+            const inputText = document.getElementById("input_text").value;
+            const response = await fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `input_text=${encodeURIComponent(inputText)}`,
+            });
+            const transformedText = await response.text();
+            document.getElementById("output").innerText = transformedText;
+        }
+    </script>
+</head>
+<body>
+    <form id="text_form" onsubmit="event.preventDefault();">
+
+        <textarea id="input_text" name="input_text" placeholder="Enter your text here" required></textarea>
+        <button type="button" onclick="transformText()">What I mean is.. </button>
+
+        <p id="output"></p>
+    </form>
+</body>
+</html>
