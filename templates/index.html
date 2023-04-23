@@ -47,6 +47,10 @@
     <script>
         async function transformText() {
             const inputText = document.getElementById("input_text").value;
+            if (!inputText.trim()) {
+                alert("Please enter some text before submitting.");
+                return;
+            }
             const response = await fetch("/", {
                 method: "POST",
                 headers: {
